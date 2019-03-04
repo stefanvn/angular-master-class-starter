@@ -3,6 +3,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ContactsMaterialModule } from './contacts-material.module';
+import { ContactsService } from './contacts.service';
 
 import { ContactsAppComponent } from './app.component';
 
@@ -14,6 +15,9 @@ import { ContactsAppComponent } from './app.component';
     BrowserAnimationsModule,
     ContactsMaterialModule,
     FlexLayoutModule
+  ],
+  providers:[
+    ContactsService
   ],
   bootstrap: [ContactsAppComponent]
 })
