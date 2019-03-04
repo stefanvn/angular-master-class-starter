@@ -9,4 +9,8 @@ import { CONTACT_DATA } from './data/contact-data'
 })
 export class ContactsAppComponent {
   contacts: Contact[] = CONTACT_DATA;
+
+  trackById(index: number, contact: Contact) {
+    return contact.id
+  }
 }
