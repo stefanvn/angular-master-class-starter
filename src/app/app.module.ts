@@ -4,17 +4,20 @@ import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ContactsMaterialModule } from './contacts-material.module';
 import { ContactsService } from './contacts.service';
+import { RouterModule } from '@angular/router';
 
 import { ContactsAppComponent } from './app.component';
-
+import { ContactsListComponent } from './contacts-list/contacts-list.component';
+import { APP_ROUTES } from './app.routes';
 
 @NgModule({
-  declarations: [ContactsAppComponent],
+  declarations: [ContactsAppComponent, ContactsListComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     ContactsMaterialModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    RouterModule.forRoot(APP_ROUTES)
   ],
   providers:[
     ContactsService
