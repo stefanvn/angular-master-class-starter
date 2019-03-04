@@ -23,4 +23,8 @@ export class ContactsService {
   getContact(id: string) {
     return this.http.get<ContactResponse>(`${this.apiEndpoint}/api/contacts/${id}`).pipe(map((data) => data.item));
   }
+
+  updateContact(contact: Contact) {
+    return this.http.put(`${this.apiEndpoint}/api/contacts/${contact.id}`, contact);
+  }
 }
