@@ -22,6 +22,5 @@ export class ContactsService {
 
   getContact(id: string) {
     return this.http.get<ContactResponse>(`${this.apiEndpoint}/api/contacts/${id}`).pipe(map((data) => data.item));
-
   }
 }
