@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ContactsService } from '../contacts.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Contact } from '../models/contact';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'trm-contacts-editor',
@@ -10,14 +11,13 @@ import { Contact } from '../models/contact';
 })
 export class ContactsEditorComponent implements OnInit {
 
-  private contact: Contact = <Contact>{ address: {}};;
+  private contact$: Observable<Contact>;
 
   constructor(private contactsService: ContactsService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     const id = this.route.snapshot.params["id"];
-    this.contactsService.getContact(id)
-                        .subscribe(contact => this.contact = contact);
+    this.contact$ = this.contactsService.getContact(id);
   }
 
   cancel(contact: Contact) {
